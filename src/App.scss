@@ -10,7 +10,7 @@ $red: #EE4525;
   }
 }
 
-.contact_list{
+.contactss_list{
   margin-top: 40px;
   .title{
     font-size: 22px;
@@ -19,7 +19,30 @@ $red: #EE4525;
     margin-bottom: 4px;
   }
 
+  .create_contact_btn{
+    background-color: $dark-grey;
+    border-color: $dark-grey;
+    font-weight: 500;
+    margin-top: 10px;
+  }
+
   .card{
     background-color: $dark-grey;
+    table{
+      tbody > tr:nth-child(1) > td{
+        border-top: 0;
+      }
+      color: white;
+      font-weight: 500;
+      margin-bottom: 5px;
+
+      .check{
+        color: $yellow;
+        font-size: 15px;
+      }
+      .delete{
+        color: white;
+      }
+    }
   }
 }
