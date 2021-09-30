@@ -1,13 +1,37 @@
 $yellow: #F5DD16;
-$dark-grey: #7C7C7C;
+$dark-grey: #7c7c7c;
 $light-grey: #BEBEBE;
 $red: #EE4525;
+
+#table-wrapper {
+  position:relative;
+  margin-top: 16px;
+}
+#table-scroll {
+  height:150px;
+  overflow:auto;
+  margin-top:20px;
+}
+#table-wrapper table {
+  width:100%;
+
+}
+#table-wrapper table * {
+  color:black;
+}
+
+.form-label {
+  margin-top:8px;
+  margin-bottom:0px;
+}
 
 .navbar{
   background-color: $dark-grey;
   .navbar-brand{
     color: $yellow !important;
+    margin-left: 25%;
   }
+  margin-bottom: 8px;
 }
 
 .invalid{
@@ -15,7 +39,7 @@ $red: #EE4525;
 }
 
 .contacts_list{
-  margin-top: 40px;
+  margin-top: 16px;
   .title{
     font-size: 22px;
     color: $dark-grey;

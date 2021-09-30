@@ -28,7 +28,6 @@ class Contacts extends Component {
     return (
       <Row>
         <Col xs={{ span: 8, offset: 2 }} className="contact_list">
-          <p className="title">Contacts</p>
           <List loadContacts={this.loadContacts} contacts={this.state.contacts}/>
           <CreateContact loadContacts={this.loadContacts}/>
         </Col>

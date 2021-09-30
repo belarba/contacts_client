@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ModalContacts = (props) => {
 
@@ -11,11 +12,9 @@ const ModalContacts = (props) => {
   const [email, setEmail] = useState(props.email || '');
   const [phone, setPhone] = useState(props.phone ||'');
   const [show, setShow] = useState('');
-  const [id, setId] = useState(props.id || '');
+  const [id] = useState(props.id || '');
   const [email_error, setEmailError] = useState('');
   const [audits, setAudits] = useState(props.audits || '');
-
-  console.log(audits);
 
   const close = () => {
     setShow(false)
@@ -50,7 +49,7 @@ const ModalContacts = (props) => {
 
   return (
       <div>
-      <Button onClick={e => setShow(true)} variant="dark" className="float-right create_contact_btn">{id ? 'Edit' : '+ Contact'}</Button>
+      <Button onClick={e => setShow(true)} variant="primary" className="float-right create_contact_btn">{id ? <FontAwesomeIcon icon="edit"/>  : '+ Contact'}</Button>
 
       <Modal backdrop="static" show={show || false} onHide={e => setShow(false)}>
         <Modal.Header closeButton>
@@ -63,22 +62,39 @@ const ModalContacts = (props) => {
                 This email is already in use
               </Alert>
             }
+            <Form.Label>First Name</Form.Label>
             <Form.Control required type="text" placeholder="Enter First Name" value={first_name || ''} onChange={e => setFirstName(e.target.value)} />
+            <Form.Label>Last Name</Form.Label>
             <Form.Control required type="text" placeholder="Enter Last Name" value={last_name || ''} onChange={e => setLastName(e.target.value)} />
+            <Form.Label>Email</Form.Label>
             <Form.Control required type="email" className={email_error} placeholder="Enter Email" value={email || ''} onChange={e => {setEmail(e.target.value); setEmailError('');}} />
+            <Form.Label>Phone</Form.Label>
             <Form.Control required type="text" placeholder="Enter Phone" value={phone || ''} onChange={e => setPhone(e.target.value)} />
           </form>
           {audits[0] &&
-            audits.map(function(data){
-              return <li>{data.audit_message}</li>;
-            })
-          }
+            <div id="table-wrapper">
+              <p>Changes made on this Contact:</p>
+              <div id="table-scroll">
+                <table>
+                    <tbody>
+                      {
+                        audits.map(function(data){
+                          return (
+                            <tr> <td>{data.audit_message}</td> </tr>
+                          )
+                        })
+                      }
+                    </tbody>
+                </table>
+              </div>
+            </div>
+    }
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={close}>
             Close
           </Button>
-          <Button variant="dark" type="submit" form="contact-form">
+          <Button variant="primary" type="submit" form="contact-form">
             {id ? 'Save' : 'Create'}
           </Button>
         </Modal.Footer>
