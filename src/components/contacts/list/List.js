@@ -33,6 +33,7 @@ class List extends Component {
                         email={contact.email}
                         phone={contact.phone}
                         id={contact.id}
+                        audits={contact.audits}
                         loadContacts={this.props.loadContacts}
                       />
                     </td>

@@ -13,6 +13,9 @@ const ModalContacts = (props) => {
   const [show, setShow] = useState('');
   const [id, setId] = useState(props.id || '');
   const [email_error, setEmailError] = useState('');
+  const [audits, setAudits] = useState(props.audits || '');
+
+  console.log(audits);
 
   const close = () => {
     setShow(false)
@@ -65,6 +68,11 @@ const ModalContacts = (props) => {
             <Form.Control required type="email" className={email_error} placeholder="Enter Email" value={email || ''} onChange={e => {setEmail(e.target.value); setEmailError('');}} />
             <Form.Control required type="text" placeholder="Enter Phone" value={phone || ''} onChange={e => setPhone(e.target.value)} />
           </form>
+          {audits[0] &&
+            audits.map(function(data){
+              return <li>{data.audit_message}</li>;
+            })
+          }
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={close}>

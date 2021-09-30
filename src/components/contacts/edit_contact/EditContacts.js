@@ -35,6 +35,7 @@ const EditContact = (props) => {
         email={props.email}
         phone={props.phone}
         id={props.id}
+        audits={props.audits}
         loadContacts={props.loadContacts}
         handleSubmit={handleSubmit}/>
   );
