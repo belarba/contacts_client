@@ -44,8 +44,15 @@ const ModalContacts = (props) => {
       }
 
     } catch (error) {
-      console.log('error');
-      console.log(error);
+      return (
+        <Alert variant="danger" dismissible>
+          <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+          <p>
+            Please contact the admin.
+            Error {error.message}
+          </p>
+        </Alert>
+      );
     }
 
   }
