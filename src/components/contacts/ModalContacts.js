@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -15,6 +15,9 @@ const ModalContacts = (props) => {
   const [id] = useState(props.id || '');
   const [email_error, setEmailError] = useState('');
   const [audits, setAudits] = useState(props.audits || '');
+  const [audits_array] = useState(props.audits || '');
+
+  useEffect(async () => { setAudits(props.audits) }, [props.audits])
 
   const close = () => {
     setShow(false)
@@ -71,7 +74,7 @@ const ModalContacts = (props) => {
             <Form.Label>Phone</Form.Label>
             <Form.Control required type="text" placeholder="Enter Phone" value={phone || ''} onChange={e => setPhone(e.target.value)} />
           </form>
-          {audits[0] &&
+          {audits_array[0] &&
             <div id="table-wrapper">
               <p>Changes made on this Contact:</p>
               <div id="table-scroll">
@@ -88,7 +91,7 @@ const ModalContacts = (props) => {
                 </table>
               </div>
             </div>
-    }
+          }
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={close}>
