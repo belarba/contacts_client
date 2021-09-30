@@ -3,7 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import List from './list/List';
 import CreateContact from './create_contact/CreateContacts';
-import Button from 'react-bootstrap/Button';
 
 class Contacts extends Component {
 

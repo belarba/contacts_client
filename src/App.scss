@@ -10,7 +10,11 @@ $red: #EE4525;
   }
 }
 
-.contactss_list{
+.invalid{
+  border:1px solid #ff0000
+}
+
+.contacts_list{
   margin-top: 40px;
   .title{
     font-size: 22px;
