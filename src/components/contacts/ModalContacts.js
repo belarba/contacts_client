@@ -15,7 +15,6 @@ const ModalContacts = (props) => {
   const [id] = useState(props.id || '');
   const [email_error, setEmailError] = useState('');
   const [audits, setAudits] = useState(props.audits || '');
-  const [audits_array] = useState(props.audits || '');
 
   useEffect(async () => { setAudits(props.audits) }, [props.audits])
 
@@ -81,16 +80,16 @@ const ModalContacts = (props) => {
             <Form.Label>Phone</Form.Label>
             <Form.Control required type="text" placeholder="Enter Phone" value={phone || ''} onChange={e => setPhone(e.target.value)} />
           </form>
-          {audits_array[0] &&
+          {audits &&
             <div id="table-wrapper">
-              <p>Changes made on this Contact:</p>
+              <p>Changes made on this Contact</p>
               <div id="table-scroll">
                 <table>
                     <tbody>
                       {
                         audits.map(function(data){
                           return (
-                            <tr> <td>{data.audit_message}</td> </tr>
+                            <tr> <td>{data.audit_message} on {data.created_at.substring(0,10)}</td> </tr>
                           )
                         })
                       }
