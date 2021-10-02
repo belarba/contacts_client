@@ -19,11 +19,13 @@ class List extends Component {
           <Card.Body>
             <Table responsive>
               <thead>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th colspan="2">Actions</th>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th colSpan="2">Actions</th>
+                </tr>
               </thead>
               <tbody>
                 {this.props.contacts.map((contact, index) => {
