@@ -1,3 +1,7 @@
+This is a client app for CRUD Contacts<br>
+You can find the backend code in https://github.com/belarba/control_contacts
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
